@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infoa.grupo.models.Usuario;
@@ -36,8 +37,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvar")
-    public Usuario salvar(@RequestBody Usuario usuario) {
-        return usuarioService.salvar(usuario);
+    public Usuario salvar(@RequestBody Usuario usuario, @RequestParam String confSenha) {
+        return usuarioService.salvar(usuario, confSenha);
     }
 
     @GetMapping("/buscar/{id}") 

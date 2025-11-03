@@ -18,8 +18,11 @@ public class UsuarioService {
         return usuarioRepository.count();
     }
 
-    public Usuario salvar(Usuario usuario) {
+    public Usuario salvar(Usuario usuario, String confSenha) {
+        if(usuario.getSenha().equals(confSenha)){
         return usuarioRepository.save(usuario);
+        }
+        return null;
     }
 
     public boolean deletar(Integer id) {

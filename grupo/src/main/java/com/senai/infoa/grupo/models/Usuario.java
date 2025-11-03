@@ -17,8 +17,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int id;
 
-    @Column(name="nome")
-    private String nome;
+    @Column(name="nome_completo")
+    private String nomeCompleto;
 
     @Column(name="cpf")
     private String cpf;
@@ -29,20 +29,37 @@ public class Usuario {
     @Column(name="email")
     private String email;
 
-    public Usuario(String nome, String email, String cpf ,LocalDate dataNascimento){
-        this.nome = nome;
+    @Column(name="senha")
+    private String senha;
+
+    public Usuario(String nomeCompleto, String email, String cpf ,LocalDate dataNascimento, String senha){
+        this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.cpf = cpf;
+        this.senha = senha;
     }
     
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+
+    public String getSenha() {
+        return senha;
+    }
+
 
     public int getId() {
         return id;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public String getCpf() {
@@ -57,9 +74,6 @@ public class Usuario {
         this.id = id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;

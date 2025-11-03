@@ -1,1 +1,1 @@
-# trabalhom em grupo
+# trabalho em grupo
